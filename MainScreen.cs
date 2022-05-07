@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThuyTienNguyen_C968_InventoryManagement.Models;
 
@@ -63,7 +57,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            DataGridViewSelectedCellCollection selectedCells = dataGridView1.SelectedCells;
+          
             // Call clearSelection 
             dataGridView1.ClearSelection();
             dataGridView2.ClearSelection();
@@ -89,17 +83,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             if (!found)
             {
-                MessageBox.Show("No Results Found.");
+                MessageBox.Show("Sorry, No Results Found.");
                 dataGridView1.DataSource = Inventory.Parts;
             }
 
         }
 
-
-        private void Grid1TextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void Grid2Search_Click(object sender, EventArgs e)
         {
@@ -120,15 +109,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             if (!found)
             {
-                MessageBox.Show("No Results Found.");
+                MessageBox.Show("Sorry, No Results Found.");
                 dataGridView2.DataSource = Inventory.Products;
             }
 
         }
-        private void Grid2TextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -248,11 +234,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.Close();
         }
 
-        private void InventoryLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
+     
         
     }
 }

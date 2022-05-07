@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 
 
@@ -87,8 +82,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             Parts.Add(part);
         }
 
-        // iterate through Parts list and remove products if the partID is a match
-        public static bool DeletePart(Part part) // bind to remove button
+        public static bool DeletePart(Part part) 
         {
             bool check = false;
             foreach (Part p in Parts)
@@ -107,8 +101,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             return check;
         }
 
-        // iterate through Parts list and return it if found, else display not found
-        public static Part LookupPart(int PartID)  //bind to search button
+        public static Part LookupPart(int PartID) 
         {
             foreach (Part p in Parts)
             {
@@ -120,8 +113,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             return null;
         }
 
-        // iterate through Parts list and update Part fields with user arguments
-        public static void UpdatePart(int PartID, Part part) // bind to save button
+        public static void UpdatePart(int PartID, Part part) 
         {
             foreach (Part p in Parts)
             {

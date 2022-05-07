@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThuyTienNguyen_C968_InventoryManagement.Models;
 
@@ -131,14 +125,10 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Yellow;
         }
 
-        private void InventoryLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private void ModifyProduct_Load(object sender, EventArgs e)
         {
-            DataGridViewSelectedCellCollection selectedCells = dataGridView1.SelectedCells;
+            
             // Call clearSelection 
             dataGridView1.ClearSelection();
             dataGridView2.ClearSelection();
@@ -169,11 +159,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
         }
 
-        private void SearchTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+  
         private void btnAdd_Click(object sender, EventArgs e)
         {
             SetdataGridView1Index();
@@ -284,10 +270,6 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             btnSave.Enabled = allowSave();
         }
 
-        private void IDtextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void MinTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -310,5 +292,6 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
 
         }
-    }
+
+     }
 }

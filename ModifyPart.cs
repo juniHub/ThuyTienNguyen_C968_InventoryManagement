@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThuyTienNguyen_C968_InventoryManagement.Models;
 
@@ -88,17 +81,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
 
         }
-        private void ModifyPart_Load(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void IDtextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void btnInHouse_CheckedChanged(object sender, EventArgs e)
         {
             Label.Text = "Machine ID";
@@ -180,16 +163,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             btnSave.Enabled = allowSave();
         }
 
-        private void InventoryLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PriceLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
             bool ValidName = ValidateFields.IsNotNullOrWhiteSpace(NameTextBox.Text);

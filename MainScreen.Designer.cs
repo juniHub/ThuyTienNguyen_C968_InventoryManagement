@@ -51,11 +51,14 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(24, 169);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(673, 294);
             this.dataGridView1.StandardTab = true;
@@ -64,11 +67,14 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(750, 169);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(673, 294);
             this.dataGridView2.StandardTab = true;
@@ -107,23 +113,24 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.InventoryLabel.Size = new System.Drawing.Size(389, 31);
             this.InventoryLabel.TabIndex = 4;
             this.InventoryLabel.Text = "Inventory Management System";
-            this.InventoryLabel.Click += new System.EventHandler(this.InventoryLabel_Click);
             // 
             // searchTextBox1
             // 
-            this.searchTextBox1.Location = new System.Drawing.Point(489, 117);
-            this.searchTextBox1.Multiline = true;
+            this.searchTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox1.Location = new System.Drawing.Point(489, 119);
             this.searchTextBox1.Name = "searchTextBox1";
-            this.searchTextBox1.Size = new System.Drawing.Size(208, 34);
+            this.searchTextBox1.Size = new System.Drawing.Size(208, 31);
             this.searchTextBox1.TabIndex = 14;
+            this.searchTextBox1.TextChanged += new System.EventHandler(this.Grid1Search_Click);
             // 
             // searchTextBox2
             // 
-            this.searchTextBox2.Location = new System.Drawing.Point(1225, 119);
-            this.searchTextBox2.Multiline = true;
+            this.searchTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox2.Location = new System.Drawing.Point(1225, 121);
             this.searchTextBox2.Name = "searchTextBox2";
-            this.searchTextBox2.Size = new System.Drawing.Size(198, 34);
+            this.searchTextBox2.Size = new System.Drawing.Size(198, 31);
             this.searchTextBox2.TabIndex = 15;
+            this.searchTextBox2.TextChanged += new System.EventHandler(this.Grid2Search_Click);
             // 
             // button1
             // 
@@ -238,7 +245,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1885, 887);
+            this.ClientSize = new System.Drawing.Size(1885, 641);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -258,7 +265,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainScreen";
-            this.Text = "MainScreen";
+            this.Text = "Main Screen";
             this.Load += new System.EventHandler(this.MainScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
