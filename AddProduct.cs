@@ -119,7 +119,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         private void AddProduct_Load(object sender, EventArgs e)
         {
            
-            // Call clearSelection 
+           
             dataGridView1.ClearSelection();
             dataGridView2.ClearSelection();
 
@@ -145,7 +145,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             if (!found)
             {
-                MessageBox.Show("Sory, No Results Found.");
+                MessageBox.Show("Sory. No Results Found.");
                 dataGridView1.DataSource = Inventory.Parts;
             }
         }
@@ -277,5 +277,10 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             btnSave.Enabled = allowSave();
         }
 
+        private void ResetSearch(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = Inventory.Parts;
+            dataGridView1.ClearSelection();
+        }
     }
 }

@@ -45,6 +45,8 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.ResetSearchPart = new System.Windows.Forms.Button();
+            this.ResetSearchProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -116,27 +118,27 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // searchTextBox1
             // 
-            this.searchTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox1.Location = new System.Drawing.Point(489, 119);
+            this.searchTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox1.Location = new System.Drawing.Point(363, 117);
             this.searchTextBox1.Name = "searchTextBox1";
-            this.searchTextBox1.Size = new System.Drawing.Size(208, 31);
+            this.searchTextBox1.Size = new System.Drawing.Size(208, 26);
             this.searchTextBox1.TabIndex = 14;
-            this.searchTextBox1.TextChanged += new System.EventHandler(this.Grid1Search_Click);
+            this.searchTextBox1.Text = "Search Part Name";
             // 
             // searchTextBox2
             // 
-            this.searchTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox2.Location = new System.Drawing.Point(1225, 121);
+            this.searchTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox2.Location = new System.Drawing.Point(1094, 117);
             this.searchTextBox2.Name = "searchTextBox2";
-            this.searchTextBox2.Size = new System.Drawing.Size(198, 31);
+            this.searchTextBox2.Size = new System.Drawing.Size(198, 26);
             this.searchTextBox2.TabIndex = 15;
-            this.searchTextBox2.TextChanged += new System.EventHandler(this.Grid2Search_Click);
+            this.searchTextBox2.Text = "Search Product Name";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(395, 117);
+            this.button1.Location = new System.Drawing.Point(269, 113);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 34);
             this.button1.TabIndex = 16;
@@ -148,7 +150,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(1131, 119);
+            this.button2.Location = new System.Drawing.Point(1000, 113);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 34);
             this.button2.TabIndex = 17;
@@ -240,12 +242,38 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // ResetSearchPart
+            // 
+            this.ResetSearchPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetSearchPart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ResetSearchPart.Location = new System.Drawing.Point(577, 113);
+            this.ResetSearchPart.Name = "ResetSearchPart";
+            this.ResetSearchPart.Size = new System.Drawing.Size(120, 34);
+            this.ResetSearchPart.TabIndex = 25;
+            this.ResetSearchPart.Text = "Reset Search";
+            this.ResetSearchPart.UseVisualStyleBackColor = true;
+            this.ResetSearchPart.Click += new System.EventHandler(this.ResetSearchPart_Click);
+            // 
+            // ResetSearchProduct
+            // 
+            this.ResetSearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetSearchProduct.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ResetSearchProduct.Location = new System.Drawing.Point(1298, 113);
+            this.ResetSearchProduct.Name = "ResetSearchProduct";
+            this.ResetSearchProduct.Size = new System.Drawing.Size(125, 34);
+            this.ResetSearchProduct.TabIndex = 26;
+            this.ResetSearchProduct.Text = "Reset Search";
+            this.ResetSearchProduct.UseVisualStyleBackColor = true;
+            this.ResetSearchProduct.Click += new System.EventHandler(this.ResetSearchProduct_Click);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1885, 641);
+            this.Controls.Add(this.ResetSearchProduct);
+            this.Controls.Add(this.ResetSearchPart);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -292,5 +320,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button ResetSearchPart;
+        private System.Windows.Forms.Button ResetSearchProduct;
     }
 }

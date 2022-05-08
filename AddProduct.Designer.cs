@@ -80,6 +80,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // MaxTextBox
             // 
+            this.MaxTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.MaxTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaxTextBox.Location = new System.Drawing.Point(187, 444);
             this.MaxTextBox.Name = "MaxTextBox";
@@ -133,6 +134,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // PriceTextBox
             // 
+            this.PriceTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.PriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PriceTextBox.Location = new System.Drawing.Point(187, 380);
             this.PriceTextBox.Name = "PriceTextBox";
@@ -142,6 +144,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // InventoryTextBox
             // 
+            this.InventoryTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.InventoryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InventoryTextBox.Location = new System.Drawing.Point(187, 314);
             this.InventoryTextBox.Name = "InventoryTextBox";
@@ -151,6 +154,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // NameTextBox
             // 
+            this.NameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameTextBox.Location = new System.Drawing.Point(187, 249);
             this.NameTextBox.Name = "NameTextBox";
@@ -171,6 +175,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // MinTextBox
             // 
+            this.MinTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.MinTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinTextBox.Location = new System.Drawing.Point(323, 446);
             this.MinTextBox.Name = "MinTextBox";
@@ -265,6 +270,8 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSave.Enabled = false;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnSave.Location = new System.Drawing.Point(821, 718);
@@ -272,7 +279,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.btnSave.Size = new System.Drawing.Size(101, 38);
             this.btnSave.TabIndex = 42;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
@@ -291,7 +298,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSearch.Location = new System.Drawing.Point(741, 22);
+            this.btnSearch.Location = new System.Drawing.Point(741, 20);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(88, 34);
             this.btnSearch.TabIndex = 45;
@@ -301,12 +308,13 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // SearchTextBox
             // 
-            this.SearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchTextBox.Location = new System.Drawing.Point(835, 24);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(208, 31);
+            this.SearchTextBox.Size = new System.Drawing.Size(208, 26);
             this.SearchTextBox.TabIndex = 44;
-            this.SearchTextBox.TextChanged += new System.EventHandler(this.btnSearch_Click);
+            this.SearchTextBox.Text = "Search Part Name";
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.ResetSearch);
             // 
             // AddProduct
             // 

@@ -15,26 +15,32 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             {
                 return false;
             }
+
             if (!ValidateFields.IsDecimal(PriceTextBox.Text))
             {
                 return false;
             }
+
             if (!ValidateFields.IsInt(InventoryTextBox.Text))
             {
                 return false;
             }
+
             if (!ValidateFields.IsInt(MinTextBox.Text))
             {
                 return false;
             }
+
             if (!ValidateFields.IsInt(MaxTextBox.Text))
             {
                 return false;
             }
+
             if (!ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text))
             {
                 return false;
             }
+
             if (isInhouse)
             {
                 if (!ValidateFields.IsInt(MachineIDTextBox.Text))
@@ -42,10 +48,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement
                     return false;
                 }
             }
+
             if (!ValidateFields.IsNotNullOrWhiteSpace(MachineIDTextBox.Text))
             {
                 return false;
             }
+
             return true;
 
         }
@@ -66,16 +74,16 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
                 if (Inventory.CurrentPart is Inhouse)
                 {
-                    Inhouse e = (Inhouse)part;
-                    MachineIDTextBox.Text = e.MachineID.ToString();
+                    Inhouse inhousePart = (Inhouse)part;
+                    MachineIDTextBox.Text = inhousePart.MachineID.ToString();
                     isInhouse = true;
                     btnInHouse.Checked = true;
 
                 }
                 else
                 {
-                    Outsourced e = (Outsourced)part;
-                    MachineIDTextBox.Text = e.CompanyName;
+                    Outsourced outsourcedPart = (Outsourced)part;
+                    MachineIDTextBox.Text = outsourcedPart.CompanyName;
                     isInhouse = false;
                     btnOutsourced.Checked = true;
                 }
@@ -86,10 +94,14 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void MaxTextBox_TextChanged(object sender, EventArgs e)
         {
-            bool ValidMax = ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text) &&
+            bool validMax = ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text) &&
             ValidateFields.IsInt(MaxTextBox.Text);
-            ValidateFields.ValidateField(MaxTextBox, ValidMax);
-            ValidateFields.ValidateField(InventoryTextBox, ValidMax);
+            ValidateFields.ValidateField(MaxTextBox, validMax);
+            ValidateFields.ValidateField(InventoryTextBox, validMax);
+            if (!validMax)
+            {
+                MessageBox.Show("Max in not invalid range");
+            }
 
             btnSave.Enabled = allowSave();
         }
@@ -169,9 +181,11 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             {
                 bool ValidInventory = ValidateFields.IsInt(InventoryTextBox.Text) &&
                 ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text);
+
                 ValidateFields.ValidateField(InventoryTextBox, ValidInventory);
                 ValidateFields.ValidateField(MinTextBox, ValidInventory);
                 ValidateFields.ValidateField(MaxTextBox, ValidInventory);
+
 
                 btnSave.Enabled = allowSave();
             }

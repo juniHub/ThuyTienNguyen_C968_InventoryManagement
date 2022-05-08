@@ -6,9 +6,10 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
 {
     public class Inventory
     {
-       
 
-        // Properties
+
+        //--------------------Properties---------------------//
+
         public static BindingList<Product> Products = new BindingList<Product>();
         public static BindingList<Part> Parts = new BindingList<Part>();
 
@@ -21,22 +22,23 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
         public static int CurrentProductID { get; set; }
         public static int SelectedProductIndex { get; set; }
 
-
+        //helper method
         internal static void Swap(Part Part)
         {
             Parts.Insert(SelectedPartIndex, Part);
             Parts.RemoveAt(SelectedPartIndex + 1);
         }
+
         //--------------------Product Methods---------------------//
 
-        // add new products
+        // add new product
         public static void AddProduct(Product Product)
         {
             Products.Add(Product);
         }
 
-        // iterate through Products list and remove products if the ProductID is a match
-        public static bool RemoveProduct(int ProductID) // bind to remove button
+        // remove product
+        public static bool RemoveProduct(int ProductID) 
         {
             bool check = false;
             foreach (Product p in Products)
@@ -56,8 +58,8 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             return check;
         }
 
-        // iterate through Products list and return it if found, else display not found
-        public static Product LookupProduct(int ProductID)  //bind to search button
+        // search product
+        public static Product LookupProduct(int ProductID) 
         {
             foreach (Product p in Products)
             {
@@ -69,19 +71,23 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             return null;
         }
 
-        // iterate through Products list and update Product fields with user arguments
-        public static void UpdateProduct(int SelectedProductIndex, Product CurrentProduct) // bind to save button
+        // update product
+        public static void UpdateProduct(int SelectedProductIndex, Product CurrentProduct) 
         {
             Products.Insert(SelectedProductIndex, CurrentProduct);
             Products.RemoveAt(SelectedProductIndex);
         }
+
         //--------------------Part Methods---------------------//
 
+
+        //add part
         public static void AddPart(Part part)
         {
             Parts.Add(part);
         }
 
+        //delete part
         public static bool DeletePart(Part part) 
         {
             bool check = false;
@@ -101,6 +107,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             return check;
         }
 
+        //search part
         public static Part LookupPart(int PartID) 
         {
             foreach (Part p in Parts)
@@ -113,6 +120,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             return null;
         }
 
+        //update part
         public static void UpdatePart(int PartID, Part part) 
         {
             foreach (Part p in Parts)
@@ -130,7 +138,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             }
         }
 
-
+        //replace part
         public static void ReplacePart(Part part, Part productpart)
         {
             int partid = part.PartID;

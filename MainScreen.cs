@@ -14,14 +14,14 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             Inventory.SelectedPartIndex = -1;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
-            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersVisible = true;
             dataGridView1.DataSource = Inventory.Parts;
           
 
             Inventory.SelectedProductIndex = -1;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
-            dataGridView2.RowHeadersVisible = false;
+            dataGridView2.RowHeadersVisible = true;
             dataGridView2.DataSource = Inventory.Products;
         }
 
@@ -51,14 +51,11 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
         }
 
-      
-
-
-
+    
         private void MainScreen_Load(object sender, EventArgs e)
         {
           
-            // Call clearSelection 
+            
             dataGridView1.ClearSelection();
             dataGridView2.ClearSelection();
 
@@ -83,11 +80,13 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             if (!found)
             {
-                MessageBox.Show("Sorry, No Results Found.");
+                MessageBox.Show("Sorry. No Results Found.");
                 dataGridView1.DataSource = Inventory.Parts;
             }
 
         }
+
+
 
 
         private void Grid2Search_Click(object sender, EventArgs e)
@@ -109,7 +108,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             if (!found)
             {
-                MessageBox.Show("Sorry, No Results Found.");
+                MessageBox.Show("Sorry. No Results Found.");
                 dataGridView2.DataSource = Inventory.Products;
             }
 
@@ -234,7 +233,14 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.Close();
         }
 
-     
-        
+        private void ResetSearchPart_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = Inventory.Parts;
+        }
+
+        private void ResetSearchProduct_Click(object sender, EventArgs e)
+        {
+            dataGridView2.DataSource = Inventory.Products;
+        }
     }
 }

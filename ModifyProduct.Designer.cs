@@ -52,6 +52,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.InventoryTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.IDTextBox = new System.Windows.Forms.TextBox();
+            this.ResetSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSearch.Location = new System.Drawing.Point(803, 29);
+            this.btnSearch.Location = new System.Drawing.Point(661, 32);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(88, 34);
             this.btnSearch.TabIndex = 68;
@@ -70,12 +71,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // SearchTextBox
             // 
-            this.SearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTextBox.Location = new System.Drawing.Point(897, 31);
+            this.SearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTextBox.Location = new System.Drawing.Point(756, 36);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(208, 31);
+            this.SearchTextBox.Size = new System.Drawing.Size(208, 26);
             this.SearchTextBox.TabIndex = 67;
-            this.SearchTextBox.TextChanged += new System.EventHandler(this.btnSearch_Click);
+            this.SearchTextBox.Text = "Search Part Name";
             // 
             // btnCancel
             // 
@@ -307,12 +308,25 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.IDTextBox.Size = new System.Drawing.Size(212, 26);
             this.IDTextBox.TabIndex = 46;
             // 
+            // ResetSearch
+            // 
+            this.ResetSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetSearch.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ResetSearch.Location = new System.Drawing.Point(970, 32);
+            this.ResetSearch.Name = "ResetSearch";
+            this.ResetSearch.Size = new System.Drawing.Size(132, 34);
+            this.ResetSearch.TabIndex = 69;
+            this.ResetSearch.Text = "Reset Search";
+            this.ResetSearch.UseVisualStyleBackColor = true;
+            this.ResetSearch.Click += new System.EventHandler(this.ResetSearch_Click);
+            // 
             // ModifyProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1210, 852);
+            this.Controls.Add(this.ResetSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.btnCancel);
@@ -338,6 +352,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.Controls.Add(this.IDTextBox);
             this.Name = "ModifyProduct";
             this.Text = "Modify Product";
+            this.Load += new System.EventHandler(this.ModifyProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -370,5 +385,6 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         private System.Windows.Forms.TextBox InventoryTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox IDTextBox;
+        private System.Windows.Forms.Button ResetSearch;
     }
 }
