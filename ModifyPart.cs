@@ -12,39 +12,62 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         {
             if (!ValidateFields.IsNotNullOrWhiteSpace(NameTextBox.Text))
             {
+                MessageBox.Show("this must not be blank");
                 return false;
             }
+
             if (!ValidateFields.IsDecimal(PriceTextBox.Text))
             {
+                MessageBox.Show("this is not a number");
                 return false;
             }
+
             if (!ValidateFields.IsInt(InventoryTextBox.Text))
             {
+                MessageBox.Show("this is not a number");
                 return false;
             }
+
             if (!ValidateFields.IsInt(MinTextBox.Text))
             {
+                MessageBox.Show("this is not a number");
                 return false;
             }
+
             if (!ValidateFields.IsInt(MaxTextBox.Text))
             {
+                MessageBox.Show("this is not a number");
                 return false;
             }
+
             if (!ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text))
             {
+                MessageBox.Show("this is out of range between min and max");
                 return false;
             }
+
+            if (!ValidateFields.ValidMin(MinTextBox.Text, MaxTextBox.Text))
+            {
+                MessageBox.Show("min must not be larger than max");
+                return false;
+            }
+
             if (isInhouse)
             {
                 if (!ValidateFields.IsInt(MachineIDTextBox.Text))
                 {
+
+                    MessageBox.Show("this is not a number");
                     return false;
                 }
             }
+
             if (!ValidateFields.IsNotNullOrWhiteSpace(MachineIDTextBox.Text))
             {
+                MessageBox.Show("this must not be blank");
                 return false;
             }
+
             return true;
         }
 
@@ -88,7 +111,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             isInhouse = true;
             bool ValidMachineID = ValidateFields.IsInt(MachineIDTextBox.Text);
             ValidateFields.ValidateField(MachineIDTextBox, ValidMachineID);
-            btnSave.Enabled = allowSave();
+           
         }
 
         private void btnOutsourced_CheckedChanged(object sender, EventArgs e)
@@ -97,8 +120,75 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             isInhouse = false;
             bool NotEmpty = ValidateFields.IsNotNullOrWhiteSpace(MachineIDTextBox.Text);
             ValidateFields.ValidateField(MachineIDTextBox, NotEmpty);
-            btnSave.Enabled = allowSave();
+         
         }
+
+
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            bool ValidName = ValidateFields.IsNotNullOrWhiteSpace(NameTextBox.Text);
+            ValidateFields.ValidateField(NameTextBox, ValidName);
+
+        }
+
+        private void PriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            bool ValidPrice = ValidateFields.IsDecimal(PriceTextBox.Text);
+            ValidateFields.ValidateField(PriceTextBox, ValidPrice);
+
+        }
+
+        private void InventoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+            {
+                bool ValidInventory = ValidateFields.IsInt(InventoryTextBox.Text) &&
+                ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text);
+                ValidateFields.ValidateField(InventoryTextBox, ValidInventory);
+                ValidateFields.ValidateField(MinTextBox, ValidInventory);
+                ValidateFields.ValidateField(MaxTextBox, ValidInventory);
+
+
+            }
+        }
+
+        private void MinTextBox_TextChanged(object sender, EventArgs e)
+        {
+            bool validMin = ValidateFields.ValidMin(MinTextBox.Text, MaxTextBox.Text) &&
+            ValidateFields.IsInt(MinTextBox.Text);
+            ValidateFields.ValidateField(MinTextBox, validMin);
+            ValidateFields.ValidateField(MaxTextBox, validMin);
+            ValidateFields.ValidateField(InventoryTextBox, validMin);
+
+
+        }
+
+
+        private void MaxTextBox_TextChanged(object sender, EventArgs e)
+        {
+            bool validMax = ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text) &&
+            ValidateFields.IsInt(MaxTextBox.Text);
+            ValidateFields.ValidateField(MaxTextBox, validMax);
+            ValidateFields.ValidateField(MinTextBox, validMax);
+            ValidateFields.ValidateField(InventoryTextBox, validMax);
+
+        }
+
+        private void MachineIDtextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (isInhouse)
+            {
+                bool MachineID = ValidateFields.IsInt(MachineIDTextBox.Text);
+                ValidateFields.ValidateField(MachineIDTextBox, MachineID);
+            }
+            else
+            {
+                bool CompanyName = ValidateFields.IsNotNullOrWhiteSpace(MachineIDTextBox.Text);
+                ValidateFields.ValidateField(MachineIDTextBox, CompanyName);
+            }
+
+        }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -112,18 +202,24 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (part == null)
-            {
-                CreateNewPart();
-            }
-            else
-            {
-                UpdatePart();
-            }
 
-            this.Hide();
-            MainScreen Main = new MainScreen();
-            Main.Show();
+            if (this.allowSave())
+            {
+
+                if (part == null)
+                {
+                    CreateNewPart();
+                }
+                else
+                {
+                    UpdatePart();
+                }
+
+                this.Hide();
+                MainScreen Main = new MainScreen();
+                Main.Show();
+
+            }
 
         }
 
@@ -164,68 +260,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         }
 
       
-        private void NameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            bool ValidName = ValidateFields.IsNotNullOrWhiteSpace(NameTextBox.Text);
-            ValidateFields.ValidateField(NameTextBox, ValidName);
-            btnSave.Enabled = allowSave();
-        }
-
-        private void PriceTextBox_TextChanged(object sender, EventArgs e)
-        {
-            bool ValidPrice = ValidateFields.IsDecimal(PriceTextBox.Text);
-            ValidateFields.ValidateField(PriceTextBox, ValidPrice);
-            btnSave.Enabled = allowSave();
-        }
-
-        private void InventoryTextBox_TextChanged(object sender, EventArgs e)
-        {
-            {
-                bool ValidInventory = ValidateFields.IsInt(InventoryTextBox.Text) &&
-                ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text);
-                ValidateFields.ValidateField(InventoryTextBox, ValidInventory);
-                ValidateFields.ValidateField(MinTextBox, ValidInventory);
-                ValidateFields.ValidateField(MaxTextBox, ValidInventory);
-
-                btnSave.Enabled = allowSave();
-            }
-        }
-
-        private void MinTextBox_TextChanged(object sender, EventArgs e)
-        {
-            bool ValidMin = ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text) &&
-            ValidateFields.IsInt(MinTextBox.Text);
-            ValidateFields.ValidateField(MinTextBox, ValidMin);
-            ValidateFields.ValidateField(InventoryTextBox, ValidMin);
-
-            btnSave.Enabled = allowSave();
-
-        }
-
-        private void MachineIDtextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (isInhouse)
-            {
-                bool MachineID = ValidateFields.IsInt(MachineIDTextBox.Text);
-                ValidateFields.ValidateField(MachineIDTextBox, MachineID);
-            }
-            else
-            {
-                bool CompanyName = ValidateFields.IsNotNullOrWhiteSpace(MachineIDTextBox.Text);
-                ValidateFields.ValidateField(MachineIDTextBox, CompanyName);
-            }
-            btnSave.Enabled = allowSave();
-        }
-
-        private void MaxTextBox_TextChanged(object sender, EventArgs e)
-        {
-            bool ValidMax = ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text) &&
-            ValidateFields.IsInt(MaxTextBox.Text);
-            ValidateFields.ValidateField(MaxTextBox, ValidMax);
-            ValidateFields.ValidateField(InventoryTextBox, ValidMax);
-
-            btnSave.Enabled = allowSave();
-        }
+     
 
         
     }

@@ -32,7 +32,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.components = new System.ComponentModel.Container();
             this.btnOutsourced = new System.Windows.Forms.RadioButton();
             this.btnInHouse = new System.Windows.Forms.RadioButton();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelModifyPart = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.MaxTextBox = new System.Windows.Forms.TextBox();
@@ -78,16 +78,16 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.btnInHouse.UseVisualStyleBackColor = true;
             this.btnInHouse.CheckedChanged += new System.EventHandler(this.btnInHouse_CheckedChanged);
             // 
-            // label8
+            // labelModifyPart
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label8.Location = new System.Drawing.Point(87, 82);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 24);
-            this.label8.TabIndex = 39;
-            this.label8.Text = "Modify Part";
+            this.labelModifyPart.AutoSize = true;
+            this.labelModifyPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelModifyPart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelModifyPart.Location = new System.Drawing.Point(87, 82);
+            this.labelModifyPart.Name = "labelModifyPart";
+            this.labelModifyPart.Size = new System.Drawing.Size(102, 24);
+            this.labelModifyPart.TabIndex = 39;
+            this.labelModifyPart.Text = "Modify Part";
             // 
             // label7
             // 
@@ -253,7 +253,6 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.IDTextBox.ReadOnly = true;
             this.IDTextBox.Size = new System.Drawing.Size(316, 26);
             this.IDTextBox.TabIndex = 23;
-          
             // 
             // contextMenuStrip1
             // 
@@ -268,7 +267,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.ClientSize = new System.Drawing.Size(882, 657);
             this.Controls.Add(this.btnOutsourced);
             this.Controls.Add(this.btnInHouse);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelModifyPart);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.MaxTextBox);
@@ -296,7 +295,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private System.Windows.Forms.RadioButton btnOutsourced;
         private System.Windows.Forms.RadioButton btnInHouse;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelModifyPart;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox MaxTextBox;

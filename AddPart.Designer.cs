@@ -47,7 +47,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.MaxTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelAddPart = new System.Windows.Forms.Label();
             this.btnInHouse = new System.Windows.Forms.RadioButton();
             this.btnOutsourced = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
@@ -125,8 +125,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Enabled = false;
+            this.btnSave.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnSave.Location = new System.Drawing.Point(400, 612);
@@ -248,21 +247,22 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.label7.TabIndex = 19;
             this.label7.Text = "Min";
             // 
-            // label8
+            // labelAddPart
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label8.Location = new System.Drawing.Point(18, 46);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 24);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Add Part";
+            this.labelAddPart.AutoSize = true;
+            this.labelAddPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAddPart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelAddPart.Location = new System.Drawing.Point(18, 46);
+            this.labelAddPart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAddPart.Name = "labelAddPart";
+            this.labelAddPart.Size = new System.Drawing.Size(82, 24);
+            this.labelAddPart.TabIndex = 20;
+            this.labelAddPart.Text = "Add Part";
             // 
             // btnInHouse
             // 
             this.btnInHouse.AutoSize = true;
+            this.btnInHouse.Checked = true;
             this.btnInHouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInHouse.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnInHouse.Location = new System.Drawing.Point(239, 46);
@@ -270,6 +270,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.btnInHouse.Name = "btnInHouse";
             this.btnInHouse.Size = new System.Drawing.Size(105, 28);
             this.btnInHouse.TabIndex = 21;
+            this.btnInHouse.TabStop = true;
             this.btnInHouse.Text = "In-House";
             this.btnInHouse.UseVisualStyleBackColor = true;
             this.btnInHouse.CheckedChanged += new System.EventHandler(this.btnInHouse_CheckedChanged);
@@ -296,7 +297,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.ClientSize = new System.Drawing.Size(1131, 699);
             this.Controls.Add(this.btnOutsourced);
             this.Controls.Add(this.btnInHouse);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelAddPart);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.MaxTextBox);
@@ -340,7 +341,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         private System.Windows.Forms.TextBox MaxTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelAddPart;
         private System.Windows.Forms.RadioButton btnInHouse;
         private System.Windows.Forms.RadioButton btnOutsourced;
     }

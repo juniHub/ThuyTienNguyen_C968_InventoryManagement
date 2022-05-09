@@ -14,29 +14,50 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         {
             if (!ValidateFields.IsNotNullOrWhiteSpace(NameTextBox.Text))
             {
+                MessageBox.Show("this must not be blank");
                 return false;
             }
-            if (!ValidateFields.IsDecimal(InventoryTextBox.Text))
+
+            if (!ValidateFields.IsDecimal(PriceTextBox.Text))
             {
+                MessageBox.Show("this is not a number");
                 return false;
             }
+
             if (!ValidateFields.IsInt(InventoryTextBox.Text))
             {
+                MessageBox.Show("this is not a number");
                 return false;
             }
+
             if (!ValidateFields.IsInt(MinTextBox.Text))
             {
+                MessageBox.Show("this is not a number");
                 return false;
             }
-            if (!ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text))
-            {
-                return false;
-            }
+
             if (!ValidateFields.IsInt(MaxTextBox.Text))
             {
+                MessageBox.Show("this is not a number");
                 return false;
             }
+
+            if (!ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text))
+            {
+                MessageBox.Show("this is out of range between min and max");
+                return false;
+            }
+
+            if (!ValidateFields.ValidMin(MinTextBox.Text, MaxTextBox.Text))
+            {
+                MessageBox.Show("min must not be larger than max");
+                return false;
+            }
+
+           
+
             return true;
+
         }
 
         public AddProduct()
@@ -145,13 +166,17 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             if (!found)
             {
-                MessageBox.Show("Sory. No Results Found.");
+                MessageBox.Show("Sory. No Part Found.");
                 dataGridView1.DataSource = Inventory.Parts;
             }
         }
 
+        private void ResetSearch_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = Inventory.Parts;
+            dataGridView1.ClearSelection();
+        }
 
-   
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             SetdataGridView1Index();
@@ -161,7 +186,8 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            SetdataGridView1Index();
+            SetdataGridView1Index(); //FIXING BUG HERE
+
             if (Inventory.SelectedPartIndex >= 0)
             {
                 Inventory.CurrentPart = Inventory.Parts[Inventory.SelectedPartIndex];
@@ -171,7 +197,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             {
                 MessageBox.Show("Please select a part to add.");
             }
-            btnSave.Enabled = allowSave();
+           
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -197,20 +223,24 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             {
                 MessageBox.Show("Please select a part to delete.");
             }
-            btnSave.Enabled = allowSave();
+           
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (product.ProductID == -1)
-            {
-                CreateNewProduct();
-            }
 
-            this.Close();
-            this.Hide();
-            MainScreen Main = new MainScreen();
-            Main.Show();
+            if (this.allowSave())
+            {
+                if (product.ProductID == -1)
+                {
+                    CreateNewProduct();
+                }
+
+                this.Close();
+                this.Hide();
+                MainScreen Main = new MainScreen();
+                Main.Show();
+            }
         }
 
         void CreateNewProduct()
@@ -237,14 +267,14 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         {
             bool ValidName = ValidateFields.IsNotNullOrWhiteSpace(NameTextBox.Text);
             ValidateFields.ValidateField(NameTextBox, ValidName);
-            btnSave.Enabled = allowSave();
+            
         }
 
         private void PriceTextBox_TextChanged(object sender, EventArgs e)
         {
             bool ValidPrice = ValidateFields.IsDecimal(InventoryTextBox.Text);
             ValidateFields.ValidateField(InventoryTextBox, ValidPrice);
-            btnSave.Enabled = allowSave();
+            
         }
 
 
@@ -256,7 +286,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             ValidateFields.ValidateField(MinTextBox, ValidInventory);
             ValidateFields.ValidateField(MaxTextBox, ValidInventory);
 
-            btnSave.Enabled = allowSave();
+            
         }
 
         private void MinTextBox_TextChanged(object sender, EventArgs e)
@@ -264,8 +294,9 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             bool ValidMin = ValidateFields.IsInt(MinTextBox.Text) &&
             ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text);
             ValidateFields.ValidateField(MinTextBox, ValidMin);
+            ValidateFields.ValidateField(MaxTextBox, ValidMin);
             ValidateFields.ValidateField(InventoryTextBox, ValidMin);
-            btnSave.Enabled = allowSave();
+            
         }
 
         private void MaxTextBox_TextChanged(object sender, EventArgs e)
@@ -273,14 +304,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             bool ValidMax = ValidateFields.IsInt(MaxTextBox.Text) &&
             ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text);
             ValidateFields.ValidateField(MaxTextBox, ValidMax);
+            ValidateFields.ValidateField(MinTextBox, ValidMax);
             ValidateFields.ValidateField(InventoryTextBox, ValidMax);
-            btnSave.Enabled = allowSave();
+           
         }
 
-        private void ResetSearch(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = Inventory.Parts;
-            dataGridView1.ClearSelection();
-        }
+
+        
     }
 }

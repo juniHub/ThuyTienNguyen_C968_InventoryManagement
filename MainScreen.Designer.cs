@@ -31,22 +31,20 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.InventoryLabel = new System.Windows.Forms.Label();
+            this.labelProduct = new System.Windows.Forms.Label();
+            this.labelPart = new System.Windows.Forms.Label();
+            this.labelMain = new System.Windows.Forms.Label();
             this.searchTextBox1 = new System.Windows.Forms.TextBox();
             this.searchTextBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.ResetSearchPart = new System.Windows.Forms.Button();
-            this.ResetSearchProduct = new System.Windows.Forms.Button();
+            this.SearchPart = new System.Windows.Forms.Button();
+            this.SearchProduct = new System.Windows.Forms.Button();
+            this.AddPart = new System.Windows.Forms.Button();
+            this.ModifyPart = new System.Windows.Forms.Button();
+            this.DeletePart = new System.Windows.Forms.Button();
+            this.AddProduct = new System.Windows.Forms.Button();
+            this.ModifyProduct = new System.Windows.Forms.Button();
+            this.DeleteProduct = new System.Windows.Forms.Button();
+            this.Exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -83,188 +81,166 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.dataGridView2.TabIndex = 6;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
-            // label1
+            // labelProduct
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(746, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Products";
+            this.labelProduct.AutoSize = true;
+            this.labelProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProduct.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelProduct.Location = new System.Drawing.Point(746, 123);
+            this.labelProduct.Name = "labelProduct";
+            this.labelProduct.Size = new System.Drawing.Size(72, 20);
+            this.labelProduct.TabIndex = 2;
+            this.labelProduct.Text = "Products";
             // 
-            // label2
+            // labelPart
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(20, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Parts";
+            this.labelPart.AutoSize = true;
+            this.labelPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelPart.Location = new System.Drawing.Point(20, 123);
+            this.labelPart.Name = "labelPart";
+            this.labelPart.Size = new System.Drawing.Size(46, 20);
+            this.labelPart.TabIndex = 3;
+            this.labelPart.Text = "Parts";
             // 
-            // InventoryLabel
+            // labelMain
             // 
-            this.InventoryLabel.AutoSize = true;
-            this.InventoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InventoryLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.InventoryLabel.Location = new System.Drawing.Point(18, 25);
-            this.InventoryLabel.Name = "InventoryLabel";
-            this.InventoryLabel.Size = new System.Drawing.Size(389, 31);
-            this.InventoryLabel.TabIndex = 4;
-            this.InventoryLabel.Text = "Inventory Management System";
+            this.labelMain.AutoSize = true;
+            this.labelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMain.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelMain.Location = new System.Drawing.Point(18, 25);
+            this.labelMain.Name = "labelMain";
+            this.labelMain.Size = new System.Drawing.Size(389, 31);
+            this.labelMain.TabIndex = 4;
+            this.labelMain.Text = "Inventory Management System";
             // 
             // searchTextBox1
             // 
             this.searchTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox1.Location = new System.Drawing.Point(363, 117);
+            this.searchTextBox1.Location = new System.Drawing.Point(489, 117);
             this.searchTextBox1.Name = "searchTextBox1";
             this.searchTextBox1.Size = new System.Drawing.Size(208, 26);
             this.searchTextBox1.TabIndex = 14;
             this.searchTextBox1.Text = "Search Part Name";
+            this.searchTextBox1.TextChanged += new System.EventHandler(this.ResetGrid1Search_TextChanged);
             // 
             // searchTextBox2
             // 
             this.searchTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox2.Location = new System.Drawing.Point(1094, 117);
+            this.searchTextBox2.Location = new System.Drawing.Point(1225, 117);
             this.searchTextBox2.Name = "searchTextBox2";
             this.searchTextBox2.Size = new System.Drawing.Size(198, 26);
             this.searchTextBox2.TabIndex = 15;
             this.searchTextBox2.Text = "Search Product Name";
+            this.searchTextBox2.TextChanged += new System.EventHandler(this.ResetGrid2Search_TextChanged);
             // 
-            // button1
+            // SearchPart
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(269, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 34);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Grid1Search_Click);
+            this.SearchPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchPart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.SearchPart.Location = new System.Drawing.Point(395, 113);
+            this.SearchPart.Name = "SearchPart";
+            this.SearchPart.Size = new System.Drawing.Size(88, 34);
+            this.SearchPart.TabIndex = 16;
+            this.SearchPart.Text = "Search";
+            this.SearchPart.UseVisualStyleBackColor = true;
+            this.SearchPart.Click += new System.EventHandler(this.Grid1Search_Click);
             // 
-            // button2
+            // SearchProduct
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(1000, 113);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 34);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Grid2Search_Click);
+            this.SearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchProduct.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.SearchProduct.Location = new System.Drawing.Point(1131, 113);
+            this.SearchProduct.Name = "SearchProduct";
+            this.SearchProduct.Size = new System.Drawing.Size(88, 34);
+            this.SearchProduct.TabIndex = 17;
+            this.SearchProduct.Text = "Search";
+            this.SearchProduct.UseVisualStyleBackColor = true;
+            this.SearchProduct.Click += new System.EventHandler(this.Grid2Search_Click);
             // 
-            // button3
+            // AddPart
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button3.Location = new System.Drawing.Point(395, 484);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 34);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Add";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Grid1Add_Click);
+            this.AddPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddPart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.AddPart.Location = new System.Drawing.Point(395, 484);
+            this.AddPart.Name = "AddPart";
+            this.AddPart.Size = new System.Drawing.Size(88, 34);
+            this.AddPart.TabIndex = 18;
+            this.AddPart.Text = "Add";
+            this.AddPart.UseVisualStyleBackColor = true;
+            this.AddPart.Click += new System.EventHandler(this.Grid1Add_Click);
             // 
-            // button4
+            // ModifyPart
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button4.Location = new System.Drawing.Point(503, 484);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(88, 34);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Modify";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Grid1Modify_Click);
+            this.ModifyPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModifyPart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ModifyPart.Location = new System.Drawing.Point(503, 484);
+            this.ModifyPart.Name = "ModifyPart";
+            this.ModifyPart.Size = new System.Drawing.Size(88, 34);
+            this.ModifyPart.TabIndex = 19;
+            this.ModifyPart.Text = "Modify";
+            this.ModifyPart.UseVisualStyleBackColor = true;
+            this.ModifyPart.Click += new System.EventHandler(this.Grid1Modify_Click);
             // 
-            // button5
+            // DeletePart
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button5.Location = new System.Drawing.Point(609, 484);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(88, 34);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Delete";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Grid1Delete_Click);
+            this.DeletePart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeletePart.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.DeletePart.Location = new System.Drawing.Point(609, 484);
+            this.DeletePart.Name = "DeletePart";
+            this.DeletePart.Size = new System.Drawing.Size(88, 34);
+            this.DeletePart.TabIndex = 20;
+            this.DeletePart.Text = "Delete";
+            this.DeletePart.UseVisualStyleBackColor = true;
+            this.DeletePart.Click += new System.EventHandler(this.Grid1Delete_Click);
             // 
-            // button6
+            // AddProduct
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button6.Location = new System.Drawing.Point(1117, 484);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(88, 34);
-            this.button6.TabIndex = 21;
-            this.button6.Text = "Add";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Grid2Add_Click);
+            this.AddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddProduct.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.AddProduct.Location = new System.Drawing.Point(1117, 484);
+            this.AddProduct.Name = "AddProduct";
+            this.AddProduct.Size = new System.Drawing.Size(88, 34);
+            this.AddProduct.TabIndex = 21;
+            this.AddProduct.Text = "Add";
+            this.AddProduct.UseVisualStyleBackColor = true;
+            this.AddProduct.Click += new System.EventHandler(this.Grid2Add_Click);
             // 
-            // button7
+            // ModifyProduct
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button7.Location = new System.Drawing.Point(1225, 484);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(88, 34);
-            this.button7.TabIndex = 22;
-            this.button7.Text = "Modify";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Grid2Modify_Click);
+            this.ModifyProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModifyProduct.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ModifyProduct.Location = new System.Drawing.Point(1225, 484);
+            this.ModifyProduct.Name = "ModifyProduct";
+            this.ModifyProduct.Size = new System.Drawing.Size(88, 34);
+            this.ModifyProduct.TabIndex = 22;
+            this.ModifyProduct.Text = "Modify";
+            this.ModifyProduct.UseVisualStyleBackColor = true;
+            this.ModifyProduct.Click += new System.EventHandler(this.Grid2Modify_Click);
             // 
-            // button8
+            // DeleteProduct
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button8.Location = new System.Drawing.Point(1335, 484);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(88, 34);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "Delete";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.Grid2Delete_Click);
+            this.DeleteProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteProduct.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.DeleteProduct.Location = new System.Drawing.Point(1335, 484);
+            this.DeleteProduct.Name = "DeleteProduct";
+            this.DeleteProduct.Size = new System.Drawing.Size(88, 34);
+            this.DeleteProduct.TabIndex = 23;
+            this.DeleteProduct.Text = "Delete";
+            this.DeleteProduct.UseVisualStyleBackColor = true;
+            this.DeleteProduct.Click += new System.EventHandler(this.Grid2Delete_Click);
             // 
-            // button9
+            // Exit
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button9.Location = new System.Drawing.Point(1335, 554);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(88, 34);
-            this.button9.TabIndex = 24;
-            this.button9.Text = "Exit";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.Exit_Click);
-            // 
-            // ResetSearchPart
-            // 
-            this.ResetSearchPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetSearchPart.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ResetSearchPart.Location = new System.Drawing.Point(577, 113);
-            this.ResetSearchPart.Name = "ResetSearchPart";
-            this.ResetSearchPart.Size = new System.Drawing.Size(120, 34);
-            this.ResetSearchPart.TabIndex = 25;
-            this.ResetSearchPart.Text = "Reset Search";
-            this.ResetSearchPart.UseVisualStyleBackColor = true;
-            this.ResetSearchPart.Click += new System.EventHandler(this.ResetSearchPart_Click);
-            // 
-            // ResetSearchProduct
-            // 
-            this.ResetSearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetSearchProduct.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ResetSearchProduct.Location = new System.Drawing.Point(1298, 113);
-            this.ResetSearchProduct.Name = "ResetSearchProduct";
-            this.ResetSearchProduct.Size = new System.Drawing.Size(125, 34);
-            this.ResetSearchProduct.TabIndex = 26;
-            this.ResetSearchProduct.Text = "Reset Search";
-            this.ResetSearchProduct.UseVisualStyleBackColor = true;
-            this.ResetSearchProduct.Click += new System.EventHandler(this.ResetSearchProduct_Click);
+            this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exit.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.Exit.Location = new System.Drawing.Point(1335, 554);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(88, 34);
+            this.Exit.TabIndex = 24;
+            this.Exit.Text = "Exit";
+            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // MainScreen
             // 
@@ -272,22 +248,20 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1885, 641);
-            this.Controls.Add(this.ResetSearchProduct);
-            this.Controls.Add(this.ResetSearchPart);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Exit);
+            this.Controls.Add(this.DeleteProduct);
+            this.Controls.Add(this.ModifyProduct);
+            this.Controls.Add(this.AddProduct);
+            this.Controls.Add(this.DeletePart);
+            this.Controls.Add(this.ModifyPart);
+            this.Controls.Add(this.AddPart);
+            this.Controls.Add(this.SearchProduct);
+            this.Controls.Add(this.SearchPart);
             this.Controls.Add(this.searchTextBox2);
             this.Controls.Add(this.searchTextBox1);
-            this.Controls.Add(this.InventoryLabel);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelMain);
+            this.Controls.Add(this.labelPart);
+            this.Controls.Add(this.labelProduct);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -306,21 +280,20 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label InventoryLabel;
+        private System.Windows.Forms.Label labelProduct;
+        private System.Windows.Forms.Label labelPart;
+        private System.Windows.Forms.Label labelMain;
         private System.Windows.Forms.TextBox searchTextBox1;
         private System.Windows.Forms.TextBox searchTextBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button ResetSearchPart;
-        private System.Windows.Forms.Button ResetSearchProduct;
+        private System.Windows.Forms.Button SearchPart;
+        private System.Windows.Forms.Button SearchProduct;
+        private System.Windows.Forms.Button AddPart;
+        private System.Windows.Forms.Button ModifyPart;
+        private System.Windows.Forms.Button DeletePart;
+        private System.Windows.Forms.Button AddProduct;
+        private System.Windows.Forms.Button ModifyProduct;
+        private System.Windows.Forms.Button DeleteProduct;
+        private System.Windows.Forms.Button Exit;
+     
     }
 }

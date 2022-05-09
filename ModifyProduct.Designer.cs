@@ -37,9 +37,9 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelAssociatedParts = new System.Windows.Forms.Label();
+            this.labelAllParts = new System.Windows.Forms.Label();
+            this.labelModifyProduct = new System.Windows.Forms.Label();
             this.MinTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,7 +52,6 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.InventoryTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.IDTextBox = new System.Windows.Forms.TextBox();
-            this.ResetSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +60,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSearch.Location = new System.Drawing.Point(661, 32);
+            this.btnSearch.Location = new System.Drawing.Point(799, 36);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(88, 34);
             this.btnSearch.TabIndex = 68;
@@ -72,11 +71,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // SearchTextBox
             // 
             this.SearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTextBox.Location = new System.Drawing.Point(756, 36);
+            this.SearchTextBox.Location = new System.Drawing.Point(893, 40);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.Size = new System.Drawing.Size(208, 26);
             this.SearchTextBox.TabIndex = 67;
             this.SearchTextBox.Text = "Search Part Name";
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.ResetSearch_TextChanged);
             // 
             // btnCancel
             // 
@@ -154,38 +154,38 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.dataGridView1.TabIndex = 61;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // label9
+            // labelAssociatedParts
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label9.Location = new System.Drawing.Point(530, 424);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(280, 24);
-            this.label9.TabIndex = 60;
-            this.label9.Text = "Part Associated with this Product";
+            this.labelAssociatedParts.AutoSize = true;
+            this.labelAssociatedParts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAssociatedParts.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelAssociatedParts.Location = new System.Drawing.Point(530, 424);
+            this.labelAssociatedParts.Name = "labelAssociatedParts";
+            this.labelAssociatedParts.Size = new System.Drawing.Size(280, 24);
+            this.labelAssociatedParts.TabIndex = 60;
+            this.labelAssociatedParts.Text = "Part Associated with this Product";
             // 
-            // label5
+            // labelAllParts
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label5.Location = new System.Drawing.Point(530, 89);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(167, 24);
-            this.label5.TabIndex = 59;
-            this.label5.Text = "All Candidate Parts";
+            this.labelAllParts.AutoSize = true;
+            this.labelAllParts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAllParts.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelAllParts.Location = new System.Drawing.Point(530, 89);
+            this.labelAllParts.Name = "labelAllParts";
+            this.labelAllParts.Size = new System.Drawing.Size(167, 24);
+            this.labelAllParts.TabIndex = 59;
+            this.labelAllParts.Text = "All Candidate Parts";
             // 
-            // label8
+            // labelModifyProduct
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label8.Location = new System.Drawing.Point(55, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(135, 24);
-            this.label8.TabIndex = 58;
-            this.label8.Text = "Modify Product";
+            this.labelModifyProduct.AutoSize = true;
+            this.labelModifyProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelModifyProduct.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelModifyProduct.Location = new System.Drawing.Point(55, 32);
+            this.labelModifyProduct.Name = "labelModifyProduct";
+            this.labelModifyProduct.Size = new System.Drawing.Size(135, 24);
+            this.labelModifyProduct.TabIndex = 58;
+            this.labelModifyProduct.Text = "Modify Product";
             // 
             // MinTextBox
             // 
@@ -308,25 +308,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.IDTextBox.Size = new System.Drawing.Size(212, 26);
             this.IDTextBox.TabIndex = 46;
             // 
-            // ResetSearch
-            // 
-            this.ResetSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetSearch.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ResetSearch.Location = new System.Drawing.Point(970, 32);
-            this.ResetSearch.Name = "ResetSearch";
-            this.ResetSearch.Size = new System.Drawing.Size(132, 34);
-            this.ResetSearch.TabIndex = 69;
-            this.ResetSearch.Text = "Reset Search";
-            this.ResetSearch.UseVisualStyleBackColor = true;
-            this.ResetSearch.Click += new System.EventHandler(this.ResetSearch_Click);
-            // 
             // ModifyProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1210, 852);
-            this.Controls.Add(this.ResetSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.btnCancel);
@@ -335,9 +322,9 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelAssociatedParts);
+            this.Controls.Add(this.labelAllParts);
+            this.Controls.Add(this.labelModifyProduct);
             this.Controls.Add(this.MinTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -370,9 +357,9 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelAssociatedParts;
+        private System.Windows.Forms.Label labelAllParts;
+        private System.Windows.Forms.Label labelModifyProduct;
         private System.Windows.Forms.TextBox MinTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -385,6 +372,5 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         private System.Windows.Forms.TextBox InventoryTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox IDTextBox;
-        private System.Windows.Forms.Button ResetSearch;
     }
 }

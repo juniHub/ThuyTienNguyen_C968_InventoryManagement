@@ -80,14 +80,18 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             if (!found)
             {
-                MessageBox.Show("Sorry. No Results Found.");
+                MessageBox.Show("Sorry. No Part Found.");
                 dataGridView1.DataSource = Inventory.Parts;
             }
 
         }
 
 
-
+        private void ResetGrid1Search_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = Inventory.Parts;
+            dataGridView1.ClearSelection();
+        }
 
         private void Grid2Search_Click(object sender, EventArgs e)
         {
@@ -108,12 +112,19 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             if (!found)
             {
-                MessageBox.Show("Sorry. No Results Found.");
+                MessageBox.Show("Sorry. No Product Found.");
                 dataGridView2.DataSource = Inventory.Products;
             }
 
         }
-        
+
+
+        private void ResetGrid2Search_TextChanged(object sender, EventArgs e)
+        {
+            dataGridView2.DataSource = Inventory.Products;
+            dataGridView2.ClearSelection();
+        }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -233,14 +244,6 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.Close();
         }
 
-        private void ResetSearchPart_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = Inventory.Parts;
-        }
-
-        private void ResetSearchProduct_Click(object sender, EventArgs e)
-        {
-            dataGridView2.DataSource = Inventory.Products;
-        }
+     
     }
 }
