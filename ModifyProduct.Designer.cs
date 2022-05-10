@@ -71,12 +71,15 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // SearchTextBox
             // 
             this.SearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTextBox.ForeColor = System.Drawing.SystemColors.GrayText;
             this.SearchTextBox.Location = new System.Drawing.Point(893, 40);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.Size = new System.Drawing.Size(208, 26);
             this.SearchTextBox.TabIndex = 67;
-            this.SearchTextBox.Text = "Search Part Name";
+            this.SearchTextBox.Text = "Search Part Name Here...";
             this.SearchTextBox.TextChanged += new System.EventHandler(this.ResetSearch_TextChanged);
+            this.SearchTextBox.Enter += new System.EventHandler(this.SearchEnter_TextChanged);
+            this.SearchTextBox.Leave += new System.EventHandler(this.SearchLeave_TextChanged);
             // 
             // btnCancel
             // 

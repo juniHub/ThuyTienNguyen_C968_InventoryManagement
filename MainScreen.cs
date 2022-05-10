@@ -16,7 +16,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
             dataGridView1.RowHeadersVisible = true;
             dataGridView1.DataSource = Inventory.Parts;
-          
+
 
             Inventory.SelectedProductIndex = -1;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -51,11 +51,11 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
         }
 
-    
+
         private void MainScreen_Load(object sender, EventArgs e)
         {
-          
-            
+
+
             dataGridView1.ClearSelection();
             dataGridView2.ClearSelection();
 
@@ -89,8 +89,27 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void ResetGrid1Search_TextChanged(object sender, EventArgs e)
         {
+
             dataGridView1.DataSource = Inventory.Parts;
             dataGridView1.ClearSelection();
+
+        }
+
+        private void Grid1SearchEnter_TextChanged(object sender, EventArgs e)
+        {
+            if (searchTextBox1.Text == "Search Part Name Here...")
+            {
+                searchTextBox1.Text = "";
+
+            }
+        }
+        private void Grid1SearchLeave_TextChanged(object sender, EventArgs e)
+        {
+            if (searchTextBox1.Text == "")
+            {
+                searchTextBox1.Text = "Search Part Name Here...";
+
+            }
         }
 
         private void Grid2Search_Click(object sender, EventArgs e)
@@ -121,8 +140,27 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void ResetGrid2Search_TextChanged(object sender, EventArgs e)
         {
+
             dataGridView2.DataSource = Inventory.Products;
             dataGridView2.ClearSelection();
+        }
+
+
+        private void Grid2SearchEnter_TextChanged(object sender, EventArgs e)
+        {
+            if (searchTextBox2.Text == "Search Product Name Here...")
+            {
+                searchTextBox2.Text = "";
+
+            }
+        }
+        private void Grid2SearchLeave_TextChanged(object sender, EventArgs e)
+        {
+            if (searchTextBox2.Text == "")
+            {
+                searchTextBox2.Text = "Search Product Name Here...";
+
+            }
         }
 
 
@@ -244,6 +282,6 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.Close();
         }
 
-     
+        
     }
 }

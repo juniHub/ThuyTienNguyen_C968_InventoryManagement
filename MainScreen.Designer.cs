@@ -117,22 +117,28 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // searchTextBox1
             // 
             this.searchTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox1.ForeColor = System.Drawing.SystemColors.GrayText;
             this.searchTextBox1.Location = new System.Drawing.Point(489, 117);
             this.searchTextBox1.Name = "searchTextBox1";
             this.searchTextBox1.Size = new System.Drawing.Size(208, 26);
             this.searchTextBox1.TabIndex = 14;
-            this.searchTextBox1.Text = "Search Part Name";
+            this.searchTextBox1.Text = "Search Part Name Here...";
             this.searchTextBox1.TextChanged += new System.EventHandler(this.ResetGrid1Search_TextChanged);
+            this.searchTextBox1.Enter += new System.EventHandler(this.Grid1SearchEnter_TextChanged);
+            this.searchTextBox1.Leave += new System.EventHandler(this.Grid1SearchLeave_TextChanged);
             // 
             // searchTextBox2
             // 
             this.searchTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox2.Location = new System.Drawing.Point(1225, 117);
+            this.searchTextBox2.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.searchTextBox2.Location = new System.Drawing.Point(1199, 117);
             this.searchTextBox2.Name = "searchTextBox2";
-            this.searchTextBox2.Size = new System.Drawing.Size(198, 26);
+            this.searchTextBox2.Size = new System.Drawing.Size(224, 26);
             this.searchTextBox2.TabIndex = 15;
-            this.searchTextBox2.Text = "Search Product Name";
+            this.searchTextBox2.Text = "Search Product Name Here...";
             this.searchTextBox2.TextChanged += new System.EventHandler(this.ResetGrid2Search_TextChanged);
+            this.searchTextBox2.Enter += new System.EventHandler(this.Grid2SearchEnter_TextChanged);
+            this.searchTextBox2.Leave += new System.EventHandler(this.Grid2SearchLeave_TextChanged);
             // 
             // SearchPart
             // 
@@ -150,7 +156,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             // 
             this.SearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchProduct.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.SearchProduct.Location = new System.Drawing.Point(1131, 113);
+            this.SearchProduct.Location = new System.Drawing.Point(1105, 113);
             this.SearchProduct.Name = "SearchProduct";
             this.SearchProduct.Size = new System.Drawing.Size(88, 34);
             this.SearchProduct.TabIndex = 17;

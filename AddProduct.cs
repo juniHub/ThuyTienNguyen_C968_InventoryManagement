@@ -9,6 +9,8 @@ namespace ThuyTienNguyen_C968_InventoryManagement
     {
         private Product product;
         private BindingList<Part> tempList;
+        private bool found = false;
+        
 
         private bool allowSave()
         {
@@ -114,9 +116,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         {
             if (dataGridView1.SelectedRows.Count != 0)
             {
+
+
                 DataGridViewRow row = this.dataGridView1.SelectedRows[0];
                 Inventory.SelectedPartIndex = row.Index;
             }
+
             else
             {
                 Inventory.SelectedPartIndex = -1;
@@ -137,6 +142,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         }
 
 
+
         private void AddProduct_Load(object sender, EventArgs e)
         {
            
@@ -149,20 +155,34 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            BindingList<Part> TempPartList = new BindingList<Part>();
-            bool found = false;
+            BindingList<Part> FoundPartList = new BindingList<Part>();
+           
             if (SearchTextBox.Text != "")
+
             {
                 for (int i = 0; i < Inventory.Parts.Count; i++)
                 {
                     if (Inventory.Parts[i].Name.ToUpper().Contains(SearchTextBox.Text.ToUpper()))
                     {
-                        TempPartList.Add(Inventory.Parts[i]);
+                        FoundPartList.Add(Inventory.Parts[i]);
+                        Inventory.CurrentPart = Inventory.Parts[i];
+
                         found = true;
+
+                      
+
+
                     }
                 }
                 if (found)
-                    dataGridView1.DataSource = TempPartList;
+                
+                {
+                    
+                    dataGridView1.DataSource = FoundPartList;
+                    
+
+                }
+
             }
             if (!found)
             {
@@ -175,6 +195,24 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         {
             dataGridView1.DataSource = Inventory.Parts;
             dataGridView1.ClearSelection();
+            found = false;
+        }
+
+        private void SearchEnter_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchTextBox.Text == "Search Part Name Here...")
+            {
+                SearchTextBox.Text = "";
+
+            }
+        }
+        private void SearchLeave_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchTextBox.Text == "")
+            {
+                SearchTextBox.Text = "Search Part Name Here...";
+
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -186,10 +224,17 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            SetdataGridView1Index(); //FIXING BUG HERE
+            SetdataGridView1Index(); 
 
-            if (Inventory.SelectedPartIndex >= 0)
+            if(found)
             {
+                product.AssociatedParts.Add(Inventory.CurrentPart);
+            }
+           
+
+            else if (Inventory.SelectedPartIndex >= 0 )
+            {
+                               
                 Inventory.CurrentPart = Inventory.Parts[Inventory.SelectedPartIndex];
                 product.AssociatedParts.Add(Inventory.CurrentPart);
             }
