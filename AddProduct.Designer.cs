@@ -86,7 +86,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.MaxTextBox.Name = "MaxTextBox";
             this.MaxTextBox.Size = new System.Drawing.Size(76, 26);
             this.MaxTextBox.TabIndex = 31;
-            this.MaxTextBox.Click += new System.EventHandler(this.MaxTextBox_TextChanged);
+            this.MaxTextBox.TextChanged += new System.EventHandler(this.MaxTextBox_TextChanged);
             // 
             // label4
             // 
@@ -140,7 +140,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.PriceTextBox.Name = "PriceTextBox";
             this.PriceTextBox.Size = new System.Drawing.Size(212, 26);
             this.PriceTextBox.TabIndex = 24;
-            this.PriceTextBox.Click += new System.EventHandler(this.PriceTextBox_TextChanged);
+            this.PriceTextBox.TextChanged += new System.EventHandler(this.PriceTextBox_TextChanged);
             // 
             // InventoryTextBox
             // 
@@ -150,7 +150,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.InventoryTextBox.Name = "InventoryTextBox";
             this.InventoryTextBox.Size = new System.Drawing.Size(212, 26);
             this.InventoryTextBox.TabIndex = 22;
-            this.InventoryTextBox.Click += new System.EventHandler(this.InventoryTextBox_TextChanged);
+            this.InventoryTextBox.TextChanged += new System.EventHandler(this.InventoryTextBox_TextChanged);
             // 
             // NameTextBox
             // 
@@ -160,7 +160,6 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(212, 26);
             this.NameTextBox.TabIndex = 21;
-            this.NameTextBox.Click += new System.EventHandler(this.NameTextBox_TextChanged);
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // IDTextBox
@@ -181,7 +180,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.MinTextBox.Name = "MinTextBox";
             this.MinTextBox.Size = new System.Drawing.Size(76, 26);
             this.MinTextBox.TabIndex = 34;
-            this.MinTextBox.Click += new System.EventHandler(this.MinTextBox_TextChanged);
+            this.MinTextBox.TextChanged += new System.EventHandler(this.MinTextBox_TextChanged);
             // 
             // labelAddProduct
             // 

@@ -197,7 +197,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.MinTextBox.Name = "MinTextBox";
             this.MinTextBox.Size = new System.Drawing.Size(72, 26);
             this.MinTextBox.TabIndex = 57;
-            this.MinTextBox.Click += new System.EventHandler(this.MinTextBox_TextChanged);
+            this.MinTextBox.TextChanged += new System.EventHandler(this.MinTextBox_TextChanged);
             // 
             // label7
             // 
@@ -228,7 +228,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.MaxTextBox.Name = "MaxTextBox";
             this.MaxTextBox.Size = new System.Drawing.Size(72, 26);
             this.MaxTextBox.TabIndex = 54;
-            this.MaxTextBox.Click += new System.EventHandler(this.MaxTextBox_TextChanged);
+            this.MaxTextBox.TextChanged += new System.EventHandler(this.MaxTextBox_TextChanged);
             // 
             // label4
             // 
@@ -281,7 +281,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.PriceTextBox.Name = "PriceTextBox";
             this.PriceTextBox.Size = new System.Drawing.Size(212, 26);
             this.PriceTextBox.TabIndex = 49;
-            this.PriceTextBox.Click += new System.EventHandler(this.PriceTextBox_TextChanged);
+            this.PriceTextBox.TextChanged += new System.EventHandler(this.PriceTextBox_TextChanged);
             // 
             // InventoryTextBox
             // 
@@ -299,7 +299,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(212, 26);
             this.NameTextBox.TabIndex = 47;
-            this.NameTextBox.Click += new System.EventHandler(this.NameTextBox_TextChanged);
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // IDTextBox
             // 

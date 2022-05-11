@@ -7,11 +7,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
     {
         public static bool IsInt(string text)
         {
-            int number;
-
-         
-            return IsNotNullOrWhiteSpace(text) &&
-                Int32.TryParse(text, out number);
+            return IsNotNullOrWhiteSpace(text) && Int32.TryParse(text, out _);
         }
         public static bool IsNotNullOrWhiteSpace(string text)
         {
@@ -20,33 +16,28 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
 
         public static bool IsDecimal(string text)
         {
-            decimal dec;
             return IsNotNullOrWhiteSpace(text) &&
-                Decimal.TryParse(text, out dec);
+                Decimal.TryParse(text, out _);
         }
 
         public static bool InvBetweenMinMax(string inv, string min, string max)
         {
-            int inStock;
-            int minInv;
-            int maxInv;
+         
 
-            Int32.TryParse(inv, out inStock);
-            Int32.TryParse(max, out maxInv);
-            Int32.TryParse(min, out minInv);
+            Int32.TryParse(inv, out int inStock);
+            Int32.TryParse(max, out int maxInv);
+            Int32.TryParse(min, out int minInv);
 
             return (maxInv >= inStock) && (minInv <= inStock);
         }
 
-        public static bool ValidMin(string min, string max)
+        public static bool ValidMinValue(string min, string max)
         {
-            
-            int minInv;
-            int maxInv;
 
-            
-            Int32.TryParse(min, out minInv);
-            Int32.TryParse(max, out maxInv);
+         
+
+            Int32.TryParse(min, out int minInv);
+            Int32.TryParse(max, out int maxInv);
 
 
 

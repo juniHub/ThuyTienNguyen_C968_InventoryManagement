@@ -22,12 +22,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
         public static int CurrentProductID { get; set; }
         public static int SelectedProductIndex { get; set; }
 
-        //helper method
-        internal static void Swap(Part Part)
-        {
-            Parts.Insert(SelectedPartIndex, Part);
-            Parts.RemoveAt(SelectedPartIndex + 1);
-        }
+      
 
         //--------------------Product Methods---------------------//
 
@@ -138,36 +133,43 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             }
         }
 
-        //replace part
-        public static void ReplacePart(Part part, Part productpart)
+        //--------------------Helper Methods---------------------//
+        internal static void Swap(Part Part)
         {
-            int partid = part.PartID;
-            int productpartid = productpart.PartID;
+            Parts.Insert(SelectedPartIndex, Part);
+            Parts.RemoveAt(SelectedPartIndex + 1);
+        }
 
-            string partname = part.Name;
-            string productpartname = productpart.Name;
+        
+        public static void ReplacePart(Part part, Part product_part)
+        {
+            int partId = part.PartID;
+            int product_partId = product_part.PartID;
 
-            decimal partprice = part.Price;
-            decimal productpartprice = productpart.Price;
+            string partName = part.Name;
+            string product_partName = product_part.Name;
 
-            int partinstock = part.InStock;
-            int productpartinstock = productpart.InStock;
+            decimal partPrice = part.Price;
+            decimal product_partPrice = product_part.Price;
 
-            int partmin = part.Min;
-            int productpartmin = productpart.Min;
+            int partInstock = part.InStock;
+            int product_partInstock = product_part.InStock;
 
-            int partmax = part.Max;
-            int productpartmax = productpart.Max;
+            int partMin = part.Min;
+            int product_partMin = product_part.Min;
 
-            if (partid == productpartid)
+            int partMax = part.Max;
+            int product_partMax = product_part.Max;
+
+            if (partId == product_partId)
             {
-                if ((partname != productpartname) ||
-                    (partprice != productpartprice) ||
-                    (partinstock != productpartinstock) ||
-                    (partmin != productpartmin) ||
-                    (partmax != productpartmax))
+                if ((partName != product_partName) ||
+                    (partPrice != product_partPrice) ||
+                    (partInstock != product_partInstock) ||
+                    (partMin != product_partMin) ||
+                    (partMax != product_partMax))
                 {
-                    CurrentProduct.AssociatedParts.Remove(productpart);
+                    CurrentProduct.AssociatedParts.Remove(product_part);
                     CurrentProduct.AssociatedParts.Add(part);
                 }
             }

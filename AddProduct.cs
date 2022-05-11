@@ -16,47 +16,46 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         {
             if (!ValidateFields.IsNotNullOrWhiteSpace(NameTextBox.Text))
             {
-                MessageBox.Show("this must not be blank");
+                MessageBox.Show("this field must not be blank");
                 return false;
             }
 
             if (!ValidateFields.IsDecimal(PriceTextBox.Text))
             {
-                MessageBox.Show("this is not a number");
+                MessageBox.Show("price/cost must be a number");
                 return false;
             }
 
             if (!ValidateFields.IsInt(InventoryTextBox.Text))
             {
-                MessageBox.Show("this is not a number");
+                MessageBox.Show("inventory/instock must be a number");
                 return false;
             }
 
             if (!ValidateFields.IsInt(MinTextBox.Text))
             {
-                MessageBox.Show("this is not a number");
+                MessageBox.Show("min must be a number");
                 return false;
             }
 
             if (!ValidateFields.IsInt(MaxTextBox.Text))
             {
-                MessageBox.Show("this is not a number");
+                MessageBox.Show("max must be a number");
                 return false;
             }
 
             if (!ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text))
             {
-                MessageBox.Show("this is out of range between min and max");
+                MessageBox.Show("inventory/ instock must not be out of range between min and max");
                 return false;
             }
 
-            if (!ValidateFields.ValidMin(MinTextBox.Text, MaxTextBox.Text))
+            if (!ValidateFields.ValidMinValue(MinTextBox.Text, MaxTextBox.Text))
             {
                 MessageBox.Show("min must not be larger than max");
                 return false;
             }
 
-           
 
             return true;
 
@@ -82,7 +81,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             {
                 IDTextBox.Text = product.ProductID.ToString();
                 NameTextBox.Text = product.Name.ToString();
-                InventoryTextBox.Text = product.Price.ToString();
+                PriceTextBox.Text = product.Price.ToString();
                 InventoryTextBox.Text = product.InStock.ToString();
                 MinTextBox.Text = product.Min.ToString();
                 MaxTextBox.Text = product.Max.ToString();
@@ -291,7 +290,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         void CreateNewProduct()
         {
             Product newProduct = new Product(NameTextBox.Text,
-            Convert.ToDecimal(InventoryTextBox.Text), Convert.ToInt32(InventoryTextBox.Text),
+            Convert.ToDecimal(PriceTextBox.Text), Convert.ToInt32(InventoryTextBox.Text),
             Convert.ToInt32(MinTextBox.Text), Convert.ToInt32(MaxTextBox.Text));
 
             Inventory.AddProduct(newProduct);
@@ -317,8 +316,8 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void PriceTextBox_TextChanged(object sender, EventArgs e)
         {
-            bool ValidPrice = ValidateFields.IsDecimal(InventoryTextBox.Text);
-            ValidateFields.ValidateField(InventoryTextBox, ValidPrice);
+            bool ValidPrice = ValidateFields.IsDecimal(PriceTextBox.Text);
+            ValidateFields.ValidateField(PriceTextBox, ValidPrice);
             
         }
 
@@ -337,7 +336,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         private void MinTextBox_TextChanged(object sender, EventArgs e)
         {
             bool ValidMin = ValidateFields.IsInt(MinTextBox.Text) &&
-            ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text);
+            ValidateFields.ValidMinValue(MinTextBox.Text, MaxTextBox.Text);
             ValidateFields.ValidateField(MinTextBox, ValidMin);
             ValidateFields.ValidateField(MaxTextBox, ValidMin);
             ValidateFields.ValidateField(InventoryTextBox, ValidMin);

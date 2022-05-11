@@ -12,41 +12,41 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         {
             if (!ValidateFields.IsNotNullOrWhiteSpace(NameTextBox.Text))
             {
-                MessageBox.Show("this must not be blank");
+                MessageBox.Show("this field must not be blank");
                 return false;
             }
 
             if (!ValidateFields.IsDecimal(PriceTextBox.Text))
             {
-                MessageBox.Show("this is not a number");
+                MessageBox.Show("price/cost must be a number");
                 return false;
             }
 
             if (!ValidateFields.IsInt(InventoryTextBox.Text))
             {
-                MessageBox.Show("this is not a number");
+                MessageBox.Show("inventory/instock must be a number");
                 return false;
             }
 
             if (!ValidateFields.IsInt(MinTextBox.Text))
             {
-                MessageBox.Show("this is not a number");
+                MessageBox.Show("min must be a number");
                 return false;
             }
 
             if (!ValidateFields.IsInt(MaxTextBox.Text))
             {
-                MessageBox.Show("this is not a number");
+                MessageBox.Show("max must be a number");
                 return false;
             }
 
             if (!ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text))
             {
-                MessageBox.Show("this is out of range between min and max");
+                MessageBox.Show("inventory/ instock must not be out of range between min and max");
                 return false;
             }
 
-            if (!ValidateFields.ValidMin(MinTextBox.Text, MaxTextBox.Text))
+            if (!ValidateFields.ValidMinValue(MinTextBox.Text, MaxTextBox.Text))
             {
                 MessageBox.Show("min must not be larger than max");
                 return false;
@@ -57,14 +57,14 @@ namespace ThuyTienNguyen_C968_InventoryManagement
                 if (!ValidateFields.IsInt(MachineIDTextBox.Text))
                 {
 
-                    MessageBox.Show("this is not a number");
+                    MessageBox.Show("Machine ID must be a number");
                     return false;
                 }
             }
 
             if (!ValidateFields.IsNotNullOrWhiteSpace(MachineIDTextBox.Text))
             {
-                MessageBox.Show("this must not be blank");
+                MessageBox.Show("this field must not be blank");
                 return false;
             }
 
@@ -154,11 +154,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void MinTextBox_TextChanged(object sender, EventArgs e)
         {
-            bool validMin = ValidateFields.ValidMin(MinTextBox.Text, MaxTextBox.Text) &&
-            ValidateFields.IsInt(MinTextBox.Text);
-            ValidateFields.ValidateField(MinTextBox, validMin);
-            ValidateFields.ValidateField(MaxTextBox, validMin);
-            ValidateFields.ValidateField(InventoryTextBox, validMin);
+            bool ValidMin = ValidateFields.IsInt(MinTextBox.Text) &&
+            ValidateFields.ValidMinValue(MinTextBox.Text, MaxTextBox.Text);
+
+            ValidateFields.ValidateField(MinTextBox, ValidMin);
+            ValidateFields.ValidateField(MaxTextBox, ValidMin);
+            ValidateFields.ValidateField(InventoryTextBox, ValidMin);
 
 
         }
@@ -166,11 +167,11 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         private void MaxTextBox_TextChanged(object sender, EventArgs e)
         {
-            bool validMax = ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text) &&
+            bool ValidMax = ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text) &&
             ValidateFields.IsInt(MaxTextBox.Text);
-            ValidateFields.ValidateField(MaxTextBox, validMax);
-            ValidateFields.ValidateField(MinTextBox, validMax);
-            ValidateFields.ValidateField(InventoryTextBox, validMax);
+            ValidateFields.ValidateField(MaxTextBox, ValidMax);
+            ValidateFields.ValidateField(MinTextBox, ValidMax);
+            ValidateFields.ValidateField(InventoryTextBox, ValidMax);
 
         }
 
@@ -223,7 +224,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
         }
 
-        void CreateNewPart()
+        private void CreateNewPart()
         {
             if (isInhouse)
             {
