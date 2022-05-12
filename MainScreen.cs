@@ -199,7 +199,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             else
             {
-                MessageBox.Show("Please select something to modify.");
+                MessageBox.Show("Please select a part to modify.");
             }
 
         }
@@ -245,7 +245,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
             }
             else
             {
-                MessageBox.Show("Please select something to modify.");
+                MessageBox.Show("Please select a product to modify.");
             }
 
         }

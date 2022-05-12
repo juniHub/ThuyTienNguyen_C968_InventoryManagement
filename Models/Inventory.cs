@@ -14,12 +14,12 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
         public static BindingList<Part> Parts = new BindingList<Part>();
 
         public static Part CurrentPart { get; set; }
-        public static int CurrentPartID { get; set; }
+      
         public static int SelectedPartIndex { get; set; }
 
 
         public static Product CurrentProduct { get; set; }
-        public static int CurrentProductID { get; set; }
+      
         public static int SelectedProductIndex { get; set; }
 
       

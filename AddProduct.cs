@@ -46,17 +46,11 @@ namespace ThuyTienNguyen_C968_InventoryManagement
 
             if (!ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text))
             {
-                MessageBox.Show("inventory/ instock must not be out of range between min and max");
+                MessageBox.Show("inventory/ instock must be in range between min and max");
                 return false;
             }
 
-            if (!ValidateFields.ValidMinValue(MinTextBox.Text, MaxTextBox.Text))
-            {
-                MessageBox.Show("min must not be larger than max");
-                return false;
-            }
-
-
+         
             return true;
 
         }
@@ -336,7 +330,7 @@ namespace ThuyTienNguyen_C968_InventoryManagement
         private void MinTextBox_TextChanged(object sender, EventArgs e)
         {
             bool ValidMin = ValidateFields.IsInt(MinTextBox.Text) &&
-            ValidateFields.ValidMinValue(MinTextBox.Text, MaxTextBox.Text);
+            ValidateFields.InvBetweenMinMax(InventoryTextBox.Text, MinTextBox.Text, MaxTextBox.Text);
             ValidateFields.ValidateField(MinTextBox, ValidMin);
             ValidateFields.ValidateField(MaxTextBox, ValidMin);
             ValidateFields.ValidateField(InventoryTextBox, ValidMin);

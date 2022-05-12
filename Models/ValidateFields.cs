@@ -31,18 +31,6 @@ namespace ThuyTienNguyen_C968_InventoryManagement.Models
             return (maxInv >= inStock) && (minInv <= inStock);
         }
 
-        public static bool ValidMinValue(string min, string max)
-        {
-
-         
-
-            Int32.TryParse(min, out int minInv);
-            Int32.TryParse(max, out int maxInv);
-
-
-
-            return (minInv <= maxInv) ;
-        }
 
         public static void ValidateField(TextBox field, bool isValid)
         {
